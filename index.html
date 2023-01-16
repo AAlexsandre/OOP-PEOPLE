@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+                this.friend = [];
+            }
+
+            speak() {
+                console.log("My name is " + this.name + " and my age is " + this.age);
+            }
+
+            meet(friend) {
+                this.friend.push(friend);
+            }
+
+            hasMet(friend) {
+                return this.friend.includes(friend);
+            }
+
+        }
+
+        class Student extends Person {
+
+            constructor(name, age, major) {
+                super(name, age);
+                this.major = major;
+            }
+            speak() {
+                console.log("Hey you, this is " + this.name, "I am " + this.age + " years old and I study " + this.major);
+            }
+        }
+        let john = new Person("John", 20);
+        let mary = new Student("Mary", 21, "Biology");
+
+        console.log(john, mary);
+
+        john.meet(mary), mary.meet(john);
+
+        if (john.hasMet(mary)) {
+            console.log("oui c'est ok ");
+        }
+        if (mary.hasMet(john)) {
+            console.log("oui c'est ok ");
+        }
+
+    </script>
+</body>
+
+</html>
